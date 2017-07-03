@@ -269,8 +269,8 @@
 - (void)performUpdatesAnimated:(BOOL)animated completion:(IGListUpdaterCompletion)completion {
     IGAssertMainThread();
 
-    id<IGListAdapterDataSource> dataSource = self.dataSource;
-    UICollectionView *collectionView = self.collectionView;
+    __weak id<IGListAdapterDataSource> dataSource = self.dataSource;
+    __weak UICollectionView *collectionView = self.collectionView;
     if (dataSource == nil || collectionView == nil) {
         if (completion) {
             completion(NO);
