@@ -279,8 +279,8 @@
 - (void)performUpdatesAnimated:(BOOL)animated completion:(IGListUpdaterCompletion)completion {
     IGAssertMainThread();
 
-    __weak id<IGListAdapterDataSource> dataSource = self.dataSource;
-    __weak UICollectionView *collectionView = self.collectionView;
+    id<IGListAdapterDataSource> dataSource = self.dataSource;
+    UICollectionView *collectionView = self.collectionView;
     if (dataSource == nil || collectionView == nil) {
         IGLKLog(@"Warning: Your call to %s is ignored as dataSource or collectionView haven't been set.", __PRETTY_FUNCTION__);        
         if (completion) {
